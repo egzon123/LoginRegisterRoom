@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoginRegisterRoom</string>
+    <string name="radio_male">M</string>
+    <string name="radio_female">F</string>
+</resources>
