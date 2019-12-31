@@ -1,6 +1,8 @@
 package com.example.loginregisterroom;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -29,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         this.getSupportActionBar().setTitle("Sign In");
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        printAllData();
+
         initViews();
 
         btnSignIn.setOnClickListener((View v) -> {
@@ -54,7 +56,14 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this,com.example.loginregisterroom.UserRegisterActivity.class);
             startActivity(intent);
         });
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        userViewModel.getAllUsers().observe(this, users -> {
+            for(User u: users){
+                System.out.println(u);
+            }
+        });
     }
+
 
     private void printAllData() {
         for(User user :userViewModel.getAllUsers().getValue()){

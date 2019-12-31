@@ -35,7 +35,7 @@ public class UserViewModel extends AndroidViewModel {
         return allUsers;
     }
     public boolean existByEmail(String email){
-       return userRepository.getUsersByEmail(email) >1;
+       return userRepository.getUsersByEmail(email) >0;
     }
 
 

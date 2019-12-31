@@ -1,6 +1,7 @@
 package com.example.loginregisterroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -57,7 +58,7 @@ public class UserRegisterActivity extends AppCompatActivity {
         this.getSupportActionBar().setTitle("Register");
 
         initView();
-
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         selectDateFromDialog(selectDate);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +82,7 @@ public class UserRegisterActivity extends AppCompatActivity {
 
                         user.setBirthday(birthdateText);
                         userViewModel.insert(user);
-
+                        finish();
                         Toast.makeText(UserRegisterActivity.this, "User created successfuly please Login", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UserRegisterActivity.this, LoginActivity.class);
                         UserRegisterActivity.this.startActivity(intent);

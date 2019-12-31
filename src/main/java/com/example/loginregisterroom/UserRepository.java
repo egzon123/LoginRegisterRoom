@@ -20,21 +20,21 @@ public class UserRepository {
     }
 
     public void insert(User user) {
-
+            insertUser(user);
     }
 
     public void delete(User user){
-
+        deleteUser(user);
     }
 
     public void update(User user){
-
+        updateUser(user);
     }
     public LiveData<List<User>> getAllUsers(){
         return allUsers;
     }
     public void deleteAllUsers(){
-
+    deleteAll();
     }
 
     public void insertUser(final User user){

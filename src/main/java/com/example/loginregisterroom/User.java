@@ -91,4 +91,17 @@ public class User {
     public boolean equals(@Nullable Object obj) {
         return super.equals(obj);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", gender=" + gender +
+                ", birthday='" + birthday + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
